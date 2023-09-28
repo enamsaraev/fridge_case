@@ -2,7 +2,7 @@
 
 ## Install
 
-    git clone https://github.com/enamsaraev/ai-test.git
+    git clone https://github.com/enamsaraev/fridge_case
 
 ## Run the app
 
