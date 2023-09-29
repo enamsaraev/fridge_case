@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from datetime import datetime
+
 
 class Measure(models.Model):
     measure = models.CharField(max_length=255,
@@ -97,11 +99,11 @@ class RecipeProduct(models.Model):
 
 class Calendar(models.Model):
     date = models.DateField(verbose_name=_('Дата'),)
-    recipe = models.ManyToManyField(Recipe)
+    recipe = models.ForeignKey('Recipe', related_name='calendars', on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Календарь'
         verbose_name_plural = 'Календарь'
 
     def __str__(self) -> str:
-        return self.date
+        return self.date.strftime('%m/%d/%Y')

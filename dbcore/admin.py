@@ -30,7 +30,7 @@ class MainPageAdmin(admin.ModelAdmin):
 
 @admin.register(Calendar)
 class MainPageAdmin(admin.ModelAdmin):
-    list_display = ('date',)
+    list_display = ('id', 'date',)
 
 
 @admin.register(AllergyProduct)

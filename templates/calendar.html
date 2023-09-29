@@ -1,0 +1,219 @@
+{% load static %}
+{% csrf_token %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/calendar.css' %}" />
+    <script
+      src="https://kit.fontawesome.com/169a0e69c0.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Smart Fridge</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="header__container container">
+          <div class="header__icons icons-header">
+            <div class="icons-header__left icons-container">
+              <i
+                class="fa-solid fa-wifi header-icon"
+                style="color: #ffffff"
+              ></i>
+              <i
+                class="fa-brands fa-itunes-note header-icon"
+                style="color: #ffffff"
+              ></i>
+              <i
+                class="fa-solid fa-bell header-icon"
+                style="color: #ffffff"
+              ></i>
+            </div>
+            <div class="icons-header__right icons-container">
+              <i
+                class="fa-solid fa-gear header-icon"
+                style="color: #ffffff"
+              ></i>
+              <a href="../main/main.html">
+                <i
+                  class="fa-solid fa-arrow-right-to-bracket header-icon"
+                  style="color: #ffffff"
+                ></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="main">
+        <section class="calendar">
+          <div class="calendar__container container">
+            <div class="calendar__body">
+              <ul class="calendar__header header-calendar calendar-row">
+                <li class="header-calendar__item calendar-item">Понедельник</li>
+                <li class="header-calendar__item calendar-item">Вторник</li>
+                <li class="header-calendar__item calendar-item">Среда</li>
+                <li class="header-calendar__item calendar-item">Четверг</li>
+                <li class="header-calendar__item calendar-item">Пятница</li>
+                <li class="header-calendar__item calendar-item">Суббота</li>
+                <li class="header-calendar__item calendar-item">Воскресенье</li>
+              </ul>
+              <ul class="calendar__week-one week-one-calendar calendar-row">
+                <li
+                  class="week-one-calendar__item calendar-item week-item"
+                ></li>
+                <li
+                  class="week-one-calendar__item calendar-item week-item"
+                ></li>
+                <li
+                  class="week-one-calendar__item calendar-item week-item"
+                ></li>
+                <li
+                  class="week-one-calendar__item calendar-item week-item"
+                ></li>
+                <li class="week-one-calendar__item calendar-item week-item">
+                  1
+                </li>
+                <li class="week-one-calendar__item calendar-item week-item">
+                  2
+                </li>
+                <li class="week-one-calendar__item calendar-item week-item">
+                  3
+                </li>
+              </ul>
+              <ul class="calendar__week-two week-two-calendar calendar-row">
+                <li class="week-two-calendar__item calendar-item week-item">
+                  4
+                </li>
+                <li class="week-two-calendar__item calendar-item week-item">
+                  5
+                </li>
+                <li class="week-two-calendar__item calendar-item week-item">
+                  6
+                </li>
+                <li class="week-two-calendar__item calendar-item week-item">
+                  7
+                </li>
+                <li class="week-two-calendar__item calendar-item week-item">
+                  8
+                </li>
+                <li class="week-two-calendar__item calendar-item week-item">
+                  9
+                </li>
+                <li class="week-two-calendar__item calendar-item week-item">
+                  10
+                </li>
+              </ul>
+              <ul class="calendar__week-three week-three-calendar calendar-row">
+                <li class="week-three-calendar__item calendar-item week-item">
+                  11
+                </li>
+                <li class="week-three-calendar__item calendar-item week-item">
+                  12
+                </li>
+                <li class="week-three-calendar__item calendar-item week-item">
+                  13
+                </li>
+                <li class="week-three-calendar__item calendar-item week-item">
+                  14
+                </li>
+                <li class="week-three-calendar__item calendar-item week-item">
+                  15
+                </li>
+                <li class="week-three-calendar__item calendar-item week-item">
+                  16
+                </li>
+                <li class="week-three-calendar__item calendar-item week-item">
+                  17
+                </li>
+              </ul>
+              <ul class="calendar__week-four week-four-calendar calendar-row">
+                <li class="week-four-calendar__item calendar-item week-item">
+                  18
+                </li>
+                <li class="week-four-calendar__item calendar-item week-item">
+                  19
+                </li>
+                <li class="week-four-calendar__item calendar-item week-item">
+                  20
+                </li>
+                <li class="week-four-calendar__item calendar-item week-item">
+                  21
+                </li>
+                <li class="week-four-calendar__item calendar-item week-item">
+                  22
+                </li>
+                <li class="week-four-calendar__item calendar-item week-item">
+                  23
+                </li>
+                <li class="week-four-calendar__item calendar-item week-item">
+                  24
+                </li>
+              </ul>
+              <ul class="calendar__week-five week-five-calendar calendar-row">
+                <li class="week-five-calendar__item calendar-item week-item">
+                  25
+                </li>
+                <li class="week-five-calendar__item calendar-item week-item">
+                  26
+                </li>
+                <li class="week-five-calendar__item calendar-item week-item">
+                  27
+                </li>
+                <li class="week-five-calendar__item calendar-item week-item">
+                  28
+                </li>
+                <li class="week-five-calendar__item calendar-item week-item">
+                  29
+                </li>
+                <li class="week-five-calendar__item calendar-item week-item">
+                  30
+                </li>
+                <li
+                  class="week-five-calendar__item calendar-item week-item"
+                ></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <div class="calendar-modal">
+          <div class="calendar-modal__body">
+            <form action="#" method="get" class="calendar-modal__form">
+              <div class="calendar-modal__date-wrapper">
+                <p class="calendar-modal__day-of-the-week"></p>
+                <input type="date" class="calendar-modal__date"></input>
+              </div>
+              <ul class="calendar-modal__list">
+                <li class="calendar-modal__item">Завтрак +</li>
+                <li class="calendar-modal__item">Ланч +</li>
+                <li class="calendar-modal__item">Обед +</li>
+                <li class="calendar-modal__item">Полдник +</li>
+                <li class="calendar-modal__item">Ужин +</li>
+              </ul>
+            </form>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="footer__container container">
+          <div class="footer__buttons">
+            <a
+            href="#"
+            class="footer__button"
+            >Календарь</a
+          >
+          <a href="#" class="footer__button">Рецепты</a>
+          <a href="#" class="footer__button">Телевизор</a>
+          <a href="#" class="footer__button">Сканер</a>
+          <a href="../main/main.html" class="footer__button">Холодильник</a>
+          <a href="#" class="footer__button">Доставка</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="{% static 'js/calendar.js' %}"></script>
+  </body>
+</html>
