@@ -287,6 +287,11 @@ html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
   z-index: 1;
   width: 50vw;
   height: 50vh;
@@ -306,6 +311,11 @@ html {
   .calendar-modal__body {
     width: 90vw;
     height: 50vh;
+  }
+}
+@media (max-width: 425px) {
+  .calendar-modal__body {
+    overflow: visible;
   }
 }
 .calendar-modal__form {
@@ -367,6 +377,7 @@ html {
     width: 100%;
   }
 }
+
 .calendar-modal__list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -375,14 +386,296 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  row-gap: 10px;
-  font-size: 26px;
+  row-gap: 15px;
+  font-size: 28px;
 }
-@media (max-width: 768px) {
+@media (max-width: 425px) {
   .calendar-modal__list {
     font-size: 20px;
   }
 }
+.calendar-modal__input-breakfast {
+  display: none;
+}
+.calendar-modal__input-dinner {
+  display: none;
+}
+.calendar-modal__input-supper {
+  display: none;
+}
+
+.item-breakfast {
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  -webkit-column-gap: 10px;
+     -moz-column-gap: 10px;
+          column-gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+.item-breakfast::after {
+  content: "+";
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.item-breakfast.active::after {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.item-breakfast__list {
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  background-color: #fff;
+  z-index: 2;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.item-breakfast__list.active {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+.item-breakfast__item {
+  padding: 10px;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.item-breakfast__item:hover {
+  background-color: rgba(144, 166, 220, 0.4745098039);
+}
+
+.item-dinner {
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  -webkit-column-gap: 10px;
+     -moz-column-gap: 10px;
+          column-gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+.item-dinner::after {
+  content: "+";
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.item-dinner.active::after {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.item-dinner__list {
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  background-color: #fff;
+  z-index: 2;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.item-dinner__list.active {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+.item-dinner__item {
+  padding: 10px;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.item-dinner__item:hover {
+  background-color: rgba(144, 166, 220, 0.4745098039);
+}
+
+.item-supper {
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  -webkit-column-gap: 10px;
+     -moz-column-gap: 10px;
+          column-gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+.item-supper::after {
+  content: "+";
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.item-supper.active::after {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.item-supper__list {
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  background-color: #fff;
+  z-index: 2;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.item-supper__list.active {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+.item-supper__item {
+  padding: 10px;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.item-supper__item:hover {
+  background-color: rgba(144, 166, 220, 0.4745098039);
+}
+
+.choice-calendar-modal {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.choice-calendar-modal.active {
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+.choice-calendar-modal__list {
+  padding: 10px;
+}
+@media (max-width: 375px) {
+  .choice-calendar-modal__list {
+    font-size: 10px;
+  }
+}
+.choice-calendar-modal__item-breakfast-choice {
+  padding: 5px;
+  display: none;
+}
+.choice-calendar-modal__item-breakfast-choice.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.choice-calendar-modal__item-dinner-choice {
+  padding: 5px;
+  display: none;
+}
+.choice-calendar-modal__item-dinner-choice.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.choice-calendar-modal__item-supper-choice {
+  padding: 5px;
+  display: none;
+}
+.choice-calendar-modal__item-supper-choice.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.calendar-moda__submit-button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  display: none;
+}
+.calendar-moda__submit-button:hover {
+  background-color: #90a5dc;
+  color: #fff;
+}
+.calendar-moda__submit-button.active {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
 .footer__container {
   padding: 20px 0px;
 }

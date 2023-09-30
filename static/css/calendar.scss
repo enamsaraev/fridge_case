@@ -204,6 +204,7 @@ html {
     padding: 10px;
   }
 }
+
 // FORM
 
 .calendar-modal {
@@ -228,6 +229,8 @@ html {
 
   &__body {
     display: flex;
+    flex-direction: column;
+    overflow: hidden;
     z-index: 1;
     width: 50vw;
     height: 50vh;
@@ -242,6 +245,9 @@ html {
     @media (max-width: 1024px) {
       width: 90vw;
       height: 50vh;
+    }
+    @media (max-width: 425px) {
+      overflow: visible;
     }
   }
 
@@ -283,15 +289,17 @@ html {
       width: 100%;
     }
   }
+}
 
+.calendar-modal {
   // .calendar-modal__list
 
   &__list {
     display: flex;
     flex-direction: column;
-    row-gap: 10px;
-    font-size: 26px;
-    @media (max-width: 768px) {
+    row-gap: 15px;
+    font-size: 28px;
+    @media (max-width: 425px) {
       font-size: 20px;
     }
   }
@@ -299,6 +307,227 @@ html {
   // .calendar-modal__item
 
   &__item {
+  }
+
+  // .calendar-modal__input-breakfast
+
+  &__input-breakfast {
+    display: none;
+  }
+
+  // .calendar-modal__input-dinner
+
+  &__input-dinner {
+    display: none;
+  }
+
+  // .calendar-modal__input-supper
+
+  &__input-supper {
+    display: none;
+  }
+}
+.item-breakfast {
+  position: relative;
+  display: inline-flex;
+  align-self: flex-start;
+  column-gap: 10px;
+  align-items: center;
+  cursor: pointer;
+  &::after {
+    content: "+";
+    transition: all 0.3s ease 0s;
+  }
+  &.active {
+    &::after {
+      transform: rotate(45deg);
+    }
+  }
+  // .item-breakfast__list
+
+  &__list {
+    transition: all 0.3s ease 0s;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    transform: scale(0);
+    background-color: #fff;
+    z-index: 2;
+    width: max-content;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    &.active {
+      width: max-content;
+      transform: scale(1);
+    }
+  }
+
+  // .item-breakfast__item
+
+  &__item {
+    padding: 10px;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      background-color: #90a6dc79;
+    }
+  }
+}
+
+.item-dinner {
+  position: relative;
+  display: inline-flex;
+  align-self: flex-start;
+  column-gap: 10px;
+  align-items: center;
+  cursor: pointer;
+  &::after {
+    content: "+";
+    transition: all 0.3s ease 0s;
+  }
+  &.active {
+    &::after {
+      transform: rotate(45deg);
+    }
+  }
+
+  // .item-dinner__list
+
+  &__list {
+    transition: all 0.3s ease 0s;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    transform: scale(0);
+    background-color: #fff;
+    z-index: 2;
+    width: max-content;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    &.active {
+      width: max-content;
+      transform: scale(1);
+    }
+  }
+
+  // .item-dinner__item
+
+  &__item {
+    padding: 10px;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      background-color: #90a6dc79;
+    }
+  }
+}
+.item-supper {
+  position: relative;
+  display: inline-flex;
+  align-self: flex-start;
+  column-gap: 10px;
+  align-items: center;
+  cursor: pointer;
+  &::after {
+    content: "+";
+    transition: all 0.3s ease 0s;
+  }
+  &.active {
+    &::after {
+      transform: rotate(45deg);
+    }
+  }
+
+  // .item-supper__list
+
+  &__list {
+    transition: all 0.3s ease 0s;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    transform: scale(0);
+    background-color: #fff;
+    z-index: 2;
+    width: max-content;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    &.active {
+      width: max-content;
+      transform: scale(1);
+    }
+  }
+
+  // .item-supper__item
+
+  &__item {
+    padding: 10px;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      background-color: #90a6dc79;
+    }
+  }
+}
+
+.choice-calendar-modal {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  max-width: max-content;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transform: scale(0);
+  transition: all 0.3s ease 0s;
+  &.active {
+    transform: scale(1);
+  }
+  // .choice-calendar-modal__list
+
+  &__list {
+    padding: 10px;
+    @media (max-width: 375px) {
+      font-size: 10px;
+    }
+  }
+
+  // .choice-calendar-modal__item-breakfast-choice
+
+  &__item-breakfast-choice {
+    padding: 5px;
+    display: none;
+    &.active {
+      display: flex;
+    }
+  }
+
+  // .choice-calendar-modal__item-dinner-choice
+
+  &__item-dinner-choice {
+    padding: 5px;
+    display: none;
+    &.active {
+      display: flex;
+    }
+  }
+
+  // .choice-calendar-modal__item-supper-choice
+
+  &__item-supper-choice {
+    padding: 5px;
+    display: none;
+    &.active {
+      display: flex;
+    }
+  }
+}
+.calendar-moda__submit-button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease 0s;
+  display: none;
+  &:hover {
+    background-color: #90a5dc;
+    color: #fff;
+  }
+  &.active {
+    display: inline-flex;
+    align-self: flex-start;
   }
 }
 

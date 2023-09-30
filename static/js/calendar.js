@@ -90,3 +90,101 @@ calendarModal.addEventListener("click", function () {
 calendarModalContent.addEventListener("click", function (e) {
   e.stopPropagation();
 });
+
+// MENU-LIST
+// submit-button
+
+const choiceContainer = document.querySelector(".choice-calendar-modal");
+const modalItem = document.querySelectorAll(".modal-item");
+const modalList = document.querySelectorAll(".modal-list");
+modalItem.forEach((item, index, array) => {
+  item.addEventListener("click", function () {
+    modalList.forEach((list) => {
+      list.classList.remove("active");
+    });
+    modalItem.forEach((item) => {
+      item.classList.remove("active");
+    });
+    modalList[index].classList.add("active");
+    modalItem[index].classList.add("active");
+  });
+});
+
+// breakfast
+const breakfastItems = document.querySelectorAll(".item-breakfast__item");
+const breakfastInput = document.querySelector(
+  ".calendar-modal__input-breakfast"
+);
+
+const breakfastChoice = document.querySelector(
+  ".choice-calendar-modal__item-breakfast-choice"
+);
+
+breakfastItems.forEach((item) => {
+  item.addEventListener("click", function (e) {
+    e.stopPropagation();
+    breakfastInput.value = e.target.textContent;
+    breakfastChoice.classList.add("active");
+    breakfastChoice.textContent = `Завтрак: ${breakfastInput.value}`;
+    choiceContainer.classList.add("active");
+    modalList[0].classList.remove("active");
+    modalItem[0].classList.remove("active");
+    formSubmitButton.classList.add("active");
+  });
+});
+
+// dinner
+const dinnerItems = document.querySelectorAll(".item-dinner__item");
+const dinnerInput = document.querySelector(".calendar-modal__input-dinner");
+
+const dinnerChoice = document.querySelector(
+  ".choice-calendar-modal__item-dinner-choice"
+);
+dinnerItems.forEach((item) => {
+  item.addEventListener("click", function (e) {
+    e.stopPropagation();
+    dinnerInput.value = e.target.textContent;
+    dinnerChoice.classList.add("active");
+    dinnerChoice.textContent = `Обед: ${dinnerInput.value}`;
+    choiceContainer.classList.add("active");
+    modalList[1].classList.remove("active");
+    modalItem[1].classList.remove("active");
+    formSubmitButton.classList.add("active");
+  });
+});
+
+// supper
+const supperItems = document.querySelectorAll(".item-supper__item");
+const supperInput = document.querySelector(".calendar-modal__input-supper");
+
+const supperChoice = document.querySelector(
+  ".choice-calendar-modal__item-supper-choice"
+);
+
+supperItems.forEach((item) => {
+  item.addEventListener("click", function (e) {
+    e.stopPropagation();
+    supperInput.value = e.target.textContent;
+    supperChoice.classList.add("active");
+    supperChoice.textContent = `Ужин: ${supperInput.value}`;
+    choiceContainer.classList.add("active");
+    modalList[2].classList.remove("active");
+    modalItem[2].classList.remove("active");
+    formSubmitButton.classList.add("active");
+  });
+});
+
+const formSubmitButton = document.querySelector(
+  ".calendar-moda__submit-button"
+);
+formSubmitButton.addEventListener("click", function () {
+  breakfastChoice.textContent = "";
+  dinnerChoice.textContent = "";
+  supperChoice.textContent = "";
+  choiceContainer.classList.remove("active");
+  breakfastChoice.classList.remove("active");
+  dinnerChoice.classList.remove("active");
+  supperChoice.classList.remove("active");
+  formSubmitButton.classList.remove("active");
+  calendarModal.classList.remove("active");
+});

@@ -38,7 +38,7 @@
                 class="fa-solid fa-gear header-icon"
                 style="color: #ffffff"
               ></i>
-              <a href="../main/main.html">
+              <a href="{% url 'main:main_page' %}">
                 <i
                   class="fa-solid fa-arrow-right-to-bracket header-icon"
                   style="color: #ffffff"
@@ -187,12 +187,42 @@
                 <input type="date" class="calendar-modal__date"></input>
               </div>
               <ul class="calendar-modal__list">
-                <li class="calendar-modal__item">Завтрак +</li>
-                <li class="calendar-modal__item">Ланч +</li>
-                <li class="calendar-modal__item">Обед +</li>
-                <li class="calendar-modal__item">Полдник +</li>
-                <li class="calendar-modal__item">Ужин +</li>
+                <li class="calendar-modal__item item-breakfast modal-item"> Завтрак
+                  <ul class="item-breakfast__list modal-list">
+                    <li class="item-breakfast__item">Вариант завтрака 1</li>
+                    <li class="item-breakfast__item">Вариант завтрака 2</li>
+                    <li class="item-breakfast__item">Вариант завтрака 3</li>
+                    <li class="item-breakfast__item">Вариант завтрака 4</li>
+                  </ul>
+                  <input type="text" class="calendar-modal__input-breakfast modal-input">
+                </li>
+                <li class="calendar-modal__item item-dinner modal-item"> Обед
+                  <ul class="item-dinner__list modal-list">
+                    <li class="item-dinner__item">Вариант обеда 1</li>
+                    <li class="item-dinner__item">Вариант обеда 2</li>
+                    <li class="item-dinner__item">Вариант обеда 3</li>
+                    <li class="item-dinner__item">Вариант обеда 4</li>
+                  </ul>
+                  <input type="text" class="calendar-modal__input-dinner modal-input">
+                </li>
+                <li class="calendar-modal__item item-supper modal-item"> Ужин
+                  <ul class="item-supper__list modal-list">
+                    <li class="item-supper__item">Вариант ужина 1</li>
+                    <li class="item-supper__item">Вариант ужина 2</li>
+                    <li class="item-supper__item">Вариант ужина 3</li>
+                    <li class="item-supper__item">Вариант ужина 4</li>
+                  </ul>
+                  <input type="text" class="calendar-modal__input-supper modal-input">
+                </li>
               </ul>
+              <div class="calendar-modal__choice choice-calendar-modal">
+                <ul class="choice-calendar-modal__list">
+                  <li class="choice-calendar-modal__item-breakfast-choice"></li>
+                  <li class="choice-calendar-modal__item-dinner-choice"></li>
+                  <li class="choice-calendar-modal__item-supper-choice"></li>
+                </ul>
+              </div>
+              <button type="submit" class="calendar-moda__submit-button">Сохранить</button>
             </form>
           </div>
         </div>
@@ -201,7 +231,7 @@
         <div class="footer__container container">
           <div class="footer__buttons">
             <a
-            href="#"
+            href="{% url 'main:calendar_page' %}"
             class="footer__button"
             >Календарь</a
           >

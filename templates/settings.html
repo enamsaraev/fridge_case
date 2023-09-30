@@ -1,0 +1,223 @@
+{% load static %}
+{% csrf_token %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/settings.css' %}" />
+    <script
+      src="https://kit.fontawesome.com/169a0e69c0.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Smart Fridge</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="header__container container">
+          <div class="header__icons icons-header">
+            <div class="icons-header__left icons-container">
+              <i
+                class="fa-solid fa-wifi header-icon"
+                style="color: #ffffff"
+              ></i>
+              <i
+                class="fa-brands fa-itunes-note header-icon"
+                style="color: #ffffff"
+              ></i>
+              <i
+                class="fa-solid fa-bell header-icon"
+                style="color: #ffffff"
+              ></i>
+            </div>
+            <div class="icons-header__right icons-container">
+              <i
+                class="fa-solid fa-gear header-icon"
+                style="color: #ffffff"
+              ></i>
+              <a href="{% url 'main:main_page' %}">
+                <i
+                  class="fa-solid fa-arrow-right-to-bracket header-icon"
+                  style="color: #ffffff"
+                ></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="main">
+        <section class="settings">
+          <div class="settings__container container">
+            <div class="settings__body">
+              <form action="#" class="settings__form">
+                <div class="settings__left-side left-side-settings">
+                  <div
+                    class="form-left-side-settings__family family-form-left-side-settings"
+                  >
+                    <div class="family-form-left-side-settings__header">
+                      <h2 class="family-form-left-side-settings__header-text">
+                        Семья
+                      </h2>
+                    </div>
+                    <div
+                      class="family-form-left-side-settings__list-container list-container-family-form-left-side-settings"
+                    >
+                      <button
+                        type="button"
+                        class="list-container-family-form-left-side-settings__add-family-member-button"
+                      >
+                        Добавить
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="form-left-side-settings__allergy allergy-form-left-side-settings"
+                  >
+                    <div class="allergy-form-left-side-settings__header">
+                      <h2 class="allergy-form-left-side-settings__header-text">
+                        Аллергии
+                      </h2>
+                    </div>
+                    <div
+                      class="llist-container-allergy-form-left-side-settings__allergy-member-row"
+                    >
+                      <input
+                        type="text"
+                        class="list-container-allergy-form-left-side-settings__allergy-member-name"
+                        placeholder="Имя"
+                      />
+                      <select name="allergy" class='allergy'>
+                        <option class='allergy-option' value="Овощи">Овощи</option>
+                        <option class='allergy-option' value="Фрукты">Фрукты</option>
+                        <option class='allergy-option' value="Водка">Водка</option>
+                        <option class='allergy-option' value="Вода">Вода</option>
+                      </select>
+                      <button
+                        type="button"
+                        class="list-container-allergy-form-left-side-settings__safe-allergy-member-button"
+                      >
+                        Сохранить
+                      </button>
+                    </div>
+                    <div
+                      class="allergy-form-left-side-settings__list-container list-container-allergy-form-left-side-settings"
+                    >
+                      {% comment %} <button
+                        type="button"
+                        class="list-container-allergy-form-left-side-settings__add-allergy-member-button"
+                      >
+                        Добавить
+                      </button> {% endcomment %}
+                    </div>
+                  </div>
+                  <div
+                    class="form-left-side-settings__cuisine cuisine-form-left-side-settings"
+                  >
+                    <div class="cuisine-form-left-side-settings__header">
+                      <h2 class="cuisine-form-left-side-settings__header-text">
+                        Кухня
+                      </h2>
+                    </div>
+                    <div
+                      class="cuisine-form-left-side-settings__list-container list-container-cuisine-form-left-side-settings"
+                    >
+                      <button
+                        type="button"
+                        class="list-container-cuisine-form-left-side-settings__add-cuisine-button"
+                      >
+                        Добавить
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="settings__right-side right-side-settings">
+                  <div
+                    class="form-right-side-settings__diete diete-form-right-side-settings"
+                  >
+                    <div class="diete-form-right-side-settings__header">
+                      <h2 class="diete-form-right-side-settings__header-text">
+                        Диета
+                      </h2>
+                    </div>
+                    <div
+                      class="diete-form-right-side-settings__list-container list-container-diete-form-right-side-settings"
+                    >
+                      <button
+                        type="button"
+                        class="list-container-diete-form-right-side-settings__add-diete-button"
+                      >
+                        Добавить
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="form-right-side-settings__delivery delivery-form-right-side-settings"
+                  >
+                    <div class="delivery-form-right-side-settings__header">
+                      <h2
+                        class="delivery-form-right-side-settings__header-text"
+                      >
+                        Доставки
+                      </h2>
+                    </div>
+                    <div
+                      class="delivery-form-right-side-settings__list-container list-container-delivery-form-right-side-settings"
+                    >
+                      <button
+                        type="button"
+                        class="list-container-delivery-form-right-side-settings__add-delivery-button"
+                      >
+                        Добавить
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="form-right-side-settings__delivery-service delivery-service-form-right-side-settings"
+                  >
+                    <div
+                      class="delivery-service-form-right-side-settings__header"
+                    >
+                      <h2
+                        class="delivery-service-form-right-side-settings__header-text"
+                      >
+                        Сервисы
+                      </h2>
+                    </div>
+                    <div
+                      class="delivery-service-form-right-side-settings__list-container list-container-delivery-service-form-right-side-settings"
+                    >
+                      <button
+                        type="button"
+                        class="list-container-delivery-service-form-right-side-settings__add-delivery-service-button"
+                      >
+                        Добавить
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="footer__container container">
+          <div class="footer__buttons">
+            <a href="{% url 'main:calendar_page' %}" class="footer__button"
+              >Календарь</a
+            >
+            <a href="#" class="footer__button">Рецепты</a>
+            <a href="#" class="footer__button">Телевизор</a>
+            <a href="#" class="footer__button">Сканер</a>
+            <a href="../main/main.html" class="footer__button">Холодильник</a>
+            <a href="#" class="footer__button">Доставка</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="{% static 'js/settings.js' %}"></script>
+  </body>
+</html>

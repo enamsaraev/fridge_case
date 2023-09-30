@@ -79,3 +79,8 @@ class CalendarView(View):
         print(dates)
 
         return render(request, 'calendar.html')
+    
+
+class SettingsView(View):
+    def get(self, request):
+        return render(request, 'settings.html')
