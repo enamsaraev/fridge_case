@@ -1,9 +1,12 @@
-from django.shortcuts import render
+import pandas as pd
+
+from django.shortcuts import render, redirect
 from django.views import View
 from django.db.models import FloatField
 from django.db.models.functions import Cast
 
-from dbcore.models import Recipe, AllergyProduct, FridgeProduct, Calendar
+from dbcore.models import Recipe, AllergyProduct, FridgeProduct, Calendar, RecipeRecomendationData
+from main.forms import AllergyProductAddForm
 
 
 class MainPageView(View):
@@ -78,9 +81,28 @@ class CalendarView(View):
                 
         print(dates)
 
-        return render(request, 'calendar.html')
+        recipe_recomendations = RecipeRecomendationData.objects.last()
+        df = pd.read_csv(recipe_recomendations.file)
+
+        ctx = {
+            'top_recipes': ', '.join([str(id) for id in df['recipe_id'].head().to_list()]),
+        }
+
+        return render(request, 'calendar.html', context=ctx)
     
 
 class SettingsView(View):
     def get(self, request):
-        return render(request, 'settings.html')
+        ctx = {
+            'allergy_product_add_form': AllergyProductAddForm()
+        }
+        return render(request, 'settings.html', context=ctx)
+
+
+class AllegryProductAdd(View):
+    def post(self, request):
+        form = AllergyProductAddForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+        
+        return redirect('main:settings')

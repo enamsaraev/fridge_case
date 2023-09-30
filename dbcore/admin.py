@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from dbcore.models import Product, FridgeProduct, Measure, Recipe, RecipeProduct, Calendar, AllergyProduct
+from dbcore.models import Product, FridgeProduct, Measure, Recipe, RecipeProduct, Calendar, AllergyProduct, RecipeRecomendationData
 
 
 @admin.register(Measure)
@@ -36,3 +36,8 @@ class MainPageAdmin(admin.ModelAdmin):
 @admin.register(AllergyProduct)
 class MainPageAdmin(admin.ModelAdmin):
     list_display = ('product',)
+
+
+@admin.register(RecipeRecomendationData)
+class MainPageAdmin(admin.ModelAdmin):
+    list_display = ('id',)

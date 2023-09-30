@@ -107,3 +107,14 @@ class Calendar(models.Model):
 
     def __str__(self) -> str:
         return self.date.strftime('%m/%d/%Y')
+    
+
+class RecipeRecomendationData(models.Model):
+    file = models.FileField(verbose_name=_('Файл'),)
+
+    class Meta:
+        verbose_name = 'Файл с данными рекомендательной системы'
+        verbose_name_plural = 'Файлы с данными рекомендательной системы'
+
+    def __str__(self) -> str:
+        return f'{self.id}'
